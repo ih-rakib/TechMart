@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+}
+.slick-prev,
+.slick-next {
+  top: 180px !important; 
+  transform: translateY(-50%) !important; 
+}
