@@ -1,6 +1,6 @@
 # TechMart - MERN E-commerce Platform
 
-> A full-featured e-commerce platform built with the MERN stack, offering tech-related products like laptops and cameras. The platform includes both **user** and **admin** dashboards with powerful features such as image upload, authentication, and order management.
+> A full-featured e-commerce platform built with the MERN stack, offering tech-related products. This website includes both **user** and **admin** dashboards with powerful features such as image upload, authentication, user management, creating product, category, category management, updating users, updating products, order management and many more.
 
 ## About the Project
 TechMart is an e-commerce platform developed using the **MERN stack** (MongoDB, Express, React, Node.js) for seamless performance and scalability. The platform features a **user-friendly UI** built with **Tailwind CSS**, along with a fully functional **Admin Dashboard** and a **User Dashboard**. It provides robust **authentication**, **authorization**, and **JWT** token management for security. Additionally, users can **upload images** for products using **Multer**.
