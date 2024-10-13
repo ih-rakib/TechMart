@@ -84,6 +84,41 @@ TechMart is an e-commerce platform developed using the **MERN stack** (MongoDB, 
 
 > Below are some screenshots of the project. 
 
-### Homepage
-![Homepage](http://localhost:5173/)
+### Home Page
+![Home Page](https://i.ibb.co.com/cF8r256/homepage.png)
 
+### Shop Page
+![Shop Page](https://i.ibb.co.com/QCsd8r2/shoppage.png)
+
+### Cart Page
+![Cart Page](https://i.ibb.co.com/Jm3Y6XN/cartpage.png)
+
+### Favouritepage
+![Favourite Page](https://i.ibb.co.com/0cKq4yq/favouritepage.png)
+
+### Login Page
+![Login Page](https://i.ibb.co.com/3ygwLkc/loginpage.png)
+
+### Register Page
+![Register Page](https://i.ibb.co.com/Gxr714c/registerpage.png)
+
+### User Dashboard
+![User Dashboard](https://i.ibb.co.com/wKtR24D/useroptions.png)
+
+### Admin Options
+![Admin Dashboard](https://i.ibb.co.com/dL7FjYf/admn-options.png)
+
+### Admin Dashboard
+![Admin Dashboard](https://i.ibb.co.com/n0pXGHT/admin.png)
+
+### See All Products
+![See All Products](https://i.ibb.co.com/pnDFQd2/all-products.png)
+
+### Create New Product
+![Create New Product](https://i.ibb.co.com/jzNH7ZL/create-product.png)
+
+### Manage Category
+![Manage Category](https://i.ibb.co.com/LN8fZ56/manage-category.png)
+
+### Manage Users
+![Manage Users](https://i.ibb.co.com/T1XcnHg/manage-users.png)
