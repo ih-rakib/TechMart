@@ -47,7 +47,7 @@ const Navigation = () => {
       {/* Desktop sidebar */}
       <aside
         id="navigation-container"
-        className="fixed left-0 top-0 z-40 hidden h-screen flex-col justify-between overflow-x-hidden bg-slate-900 p-4 text-white md:flex"
+        className="fixed left-0 top-0 z-40 hidden h-screen flex-col justify-between overflow-x-hidden bg-slate-900 p-4 text-white lg:flex"
       >
         <nav className="flex flex-col gap-7 pt-5">
           {links.map((item) => (
@@ -92,7 +92,7 @@ const Navigation = () => {
       </aside>
 
       {/* Phone navigation: fixed bottom bar instead of a narrow desktop sidebar */}
-      <nav className="mobile-navigation fixed inset-x-0 bottom-0 z-50 grid grid-cols-4 border-t border-slate-700 bg-slate-900 px-1 pb-[max(0.4rem,env(safe-area-inset-bottom))] pt-2 text-white md:hidden">
+      <nav className="mobile-navigation fixed inset-x-0 bottom-0 z-50 grid grid-cols-4 border-t border-slate-700 bg-slate-900 px-1 pb-[max(0.4rem,env(safe-area-inset-bottom))] pt-2 text-white lg:hidden">
         {links.map((item) => (
           <Link key={item.to} to={item.to} className="relative flex min-w-0 flex-col items-center justify-center gap-1 py-1 text-xs">
             <span className="relative">{item.icon}
