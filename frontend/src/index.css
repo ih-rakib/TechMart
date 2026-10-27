@@ -25,7 +25,7 @@ body {
   overflow-x: hidden;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   #navigation-container {
     display: none !important;
   }
