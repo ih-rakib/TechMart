@@ -69,7 +69,7 @@ const ProductDetails = () => {
       <div>
         <Link
           to="/"
-          className="flex items-center font-semibold hover:underline ml-[10rem] text-gray-800"
+          className="mx-auto flex w-full max-w-7xl items-center px-4 font-semibold text-gray-800 hover:underline sm:px-6 lg:px-8"
         >
           <AiOutlineArrowLeft className="mr-2 text-gray-800" /> Go Back
         </Link>
@@ -83,11 +83,11 @@ const ProductDetails = () => {
         </Message>
       ) : (
         <>
-          <div className="mt-[2rem] ml-[10rem] mr-[7rem]">
+          <div className="mx-auto mt-6 w-full max-w-7xl min-w-0 px-4 sm:mt-8 sm:px-6 lg:px-8">
             {/* Wrap Image and Details in a container */}
-            <div className="flex justify-between">
+            <div className="flex min-w-0 flex-col gap-6 md:flex-row md:gap-8">
               {/* Image Section */}
-              <div className="w-full md:w-1/2 mr-[2rem]">
+              <div className="w-full min-w-0 md:w-1/2">
                 <div className="relative pb-[100%]">
                   {" "}
                   {/* 1:1 Aspect Ratio */}
@@ -101,13 +101,13 @@ const ProductDetails = () => {
               </div>
 
               {/* Details Section */}
-              <div className="w-1/2">
+              <div className="w-full min-w-0 md:w-1/2">
                 <h2 className="text-2xl font-semibold">{product.name}</h2>
                 <p className="my-4 text-[#B0B0B0]">{product.description}</p>
-                <p className="text-5xl my-4 font-extrabold">
+                <p className="my-4 text-3xl font-extrabold sm:text-4xl">
                   $ {product.price}
                 </p>
-                <div className="flex items-center justify-between w-[20rem]">
+                <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
                   <div className="one">
                     <h1 className="flex items-center mb-6">
                       <FaStore className="mr-2"></FaStore> Brand:{" "}
@@ -176,7 +176,7 @@ const ProductDetails = () => {
             </div>
 
             {/* ProductTabs - Full Width Below Image and Details */}
-            <div className="ml-[10rem] mt-[5rem] container flex flex-wrap items-start justify-between">
+            <div className="mt-10 w-full min-w-0">
               <ProductTabs
                 loadingProductReview={loadingProductReview}
                 handleSubmit={handleSubmit}
