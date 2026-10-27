@@ -27,8 +27,8 @@ const ProductTabs = ({
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
-      <section className="mr-[5rem]">
+    <div className="flex w-full min-w-0 flex-col gap-6 md:flex-row">
+      <section className="w-full shrink-0 md:w-56">
         <div
           onClick={() => handleTabClick(1)}
           className={`flex-1 p-4 cursor-pointer text-lg ${
@@ -73,7 +73,7 @@ const ProductTabs = ({
                     required
                     value={rating}
                     onChange={(e) => setRating(e.target.value)}
-                    className="p-2 border rounded-lg xl:w-[40rem]"
+                    className="w-full max-w-2xl rounded-lg border p-2"
                   >
                     <option value="">Select</option>
                     <option value="1">Inferior</option>
@@ -95,7 +95,7 @@ const ProductTabs = ({
                     required
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
-                    className="p-2 border rounded-lg xl:w-[40rem]"
+                    className="w-full max-w-2xl rounded-lg border p-2"
                   ></textarea>
                 </div>
 
@@ -126,9 +126,9 @@ const ProductTabs = ({
               {product.reviews.map((review) => (
                 <div
                   key={review._id}
-                  className="bg-slate-100 p-4 rounded-lg xl:ml-[2rem] sm:ml-[0rem] xl:w-[50rem] sm:w-[24rem] mb-5"
+                  className="mb-5 w-full max-w-3xl rounded-lg bg-slate-100 p-4"
                 >
-                  <div className="flex justify-between">
+                  <div className="flex flex-wrap justify-between gap-2">
                     <strong className="text-slate-800">{review.name}</strong>
                     <p className="text-slate-800">
                       {review.createdAt.substring(0, 10)}
@@ -146,7 +146,7 @@ const ProductTabs = ({
 
       <section>
         {activeTab === 3 && (
-          <section className="ml-[4rem] flex flex-wrap">
+          <section className="flex min-w-0 flex-wrap gap-4">
             {!data ? (
               <Loader></Loader>
             ) : (
