@@ -9,32 +9,30 @@ import {
 } from "../redux/features/shop/shopSlice";
 import Loader from "../components/Loader";
 import ProductCard from "./Products/ProductCard";
+import Message from "../components/Message";
 
 const Shop = () => {
   const dispatch = useDispatch();
   const { categories, products, checked } = useSelector((state) => state.shop);
   const categoriesQuery = useGetCategoryListQuery();
   const [priceFilter, setPriceFilter] = useState(["", ""]);
-  const filteredProductsQuery = useGetFilteredProductsQuery({
-    checked,
-    priceFilter,
-  });
+  const filteredProductsQuery = useGetFilteredProductsQuery({ checked });
 
   useEffect(() => {
     if (!categoriesQuery.isLoading) {
-      dispatch(setCategories(categoriesQuery.data));
+      dispatch(setCategories(Array.isArray(categoriesQuery.data) ? categoriesQuery.data : []));
     }
   }, [categoriesQuery.data, dispatch, categoriesQuery.isLoading]);
 
   useEffect(() => {
     if (!filteredProductsQuery.isLoading) {
-      const filteredProducts = filteredProductsQuery.data?.filter((product) => {
-        const minPrice = priceFilter[0] ? parseInt(priceFilter[0], 10) : 0;
-        const maxPrice = priceFilter[1]
-          ? parseInt(priceFilter[1], 10)
-          : Infinity;
-        return product.price >= minPrice && product.price <= maxPrice;
-      });
+      const filteredProducts = Array.isArray(filteredProductsQuery.data)
+        ? filteredProductsQuery.data.filter((product) => {
+            const minPrice = priceFilter[0] ? Number(priceFilter[0]) : 0;
+            const maxPrice = priceFilter[1] ? Number(priceFilter[1]) : Infinity;
+            return product.price >= minPrice && product.price <= maxPrice;
+          })
+        : [];
       dispatch(setProducts(filteredProducts));
     }
   }, [
@@ -60,8 +58,8 @@ const Shop = () => {
 
   const uniqueBrands = [
     ...new Set(
-      products
-        .map((product) => product.brand.toLowerCase())
+      (Array.isArray(products) ? products : [])
+        .map((product) => (product.brand || "").toLowerCase())
         .filter((brand) => brand)
     ),
   ];
@@ -155,6 +153,11 @@ const Shop = () => {
 
       {/* min-w-0 prevents the results column from being squeezed or overflowing. */}
       <section className="min-w-0 flex-1 p-1 sm:p-2">
+        {filteredProductsQuery.isError && (
+          <Message variant="danger">
+            Could not load products from the store API. Please try again shortly.
+          </Message>
+        )}
         <h2 className="mb-4 text-center text-lg font-semibold sm:text-xl">
           Available Products: {products?.length ?? 0}
         </h2>
