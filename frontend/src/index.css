@@ -8,6 +8,29 @@
 }
 .slick-prev,
 .slick-next {
-  top: 180px !important; 
-  transform: translateY(-50%) !important; 
+  top: 180px !important;
+  transform: translateY(-50%) !important;
+}
+
+/* Keep content clear of the fixed navigation on phones and desktop. */
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+  #navigation-container {
+    display: none !important;
+  }
+
+  .mobile-navigation {
+    min-height: 64px;
+  }
 }
