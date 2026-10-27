@@ -11,7 +11,7 @@ const starterCatalog = [
     quantity: 25,
     countInStock: 25,
     description: "Comfortable over-ear wireless headphones with rich sound, active noise cancellation, and long battery life for work and travel.",
-    image: "https://images.unsplash.com/photo-1502951682449-e5b93545d646?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80",
     categoryName: "Audio",
   },
   {
@@ -88,6 +88,15 @@ const starterCatalog = [
 
 export async function seedStarterCatalog() {
   const existingProducts = await Product.countDocuments();
+
+  // Repair the image for this specifically named demo product if it was
+  // already inserted with the earlier incorrect image. Other product data
+  // and customer-created products remain untouched.
+  await Product.updateOne(
+    { name: "Wireless Noise-Cancelling Headphones", brand: "SoundCore" },
+    { $set: { image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" } }
+  );
+
   if (existingProducts > 0) {
     console.log(`Starter catalog skipped: ${existingProducts} products already exist.`);
     return;
