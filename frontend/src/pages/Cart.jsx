@@ -26,9 +26,9 @@ const Cart = () => {
 
   return (
     <>
-      <div className="container flex justify-around items-start flex-wrap mx-auto mt-8">
+      <div className="container mx-auto mt-6 flex w-full min-w-0 flex-wrap items-start justify-center px-4 sm:mt-8 sm:px-6">
         {cartItems.length === 0 ? (
-          <div className="inline-flex">
+          <div className="flex flex-wrap items-center gap-3 rounded-xl bg-slate-50 p-5">
             Your Cart is empty
             <Link
               to="/shop"
@@ -39,13 +39,13 @@ const Cart = () => {
           </div>
         ) : (
           <>
-            <div className="flex flex-col md:w-1/2">
-              <h1 className="text-2xl font-semibold mb-4"> Shopping Cart</h1>
+            <div className="flex w-full min-w-0 flex-col md:max-w-3xl">
+              <h1 className="mb-4 text-xl font-semibold sm:text-2xl"> Shopping Cart</h1>
 
               {cartItems.map((item) => (
                 <div
                   key={item._id}
-                  className="flex items-center mb-[1rem] pb-2"
+                  className="mb-4 flex min-w-0 flex-wrap items-center gap-3 border-b border-slate-200 pb-4 sm:flex-nowrap"
                 >
                   <div className="w-[5rem] h-[5rem]">
                     <img
@@ -55,7 +55,7 @@ const Cart = () => {
                     />
                   </div>
 
-                  <div className="flex-1 ml-4">
+                  <div className="min-w-0 flex-1 sm:ml-2">
                     <Link to={`/product/${item._id}`} className="text-blue-800">
                       {item.name}
                     </Link>
@@ -85,15 +85,15 @@ const Cart = () => {
                   <div>
                     <button
                       onClick={() => removeFromCartHandler(item._id)}
-                      className="text-red-500 mr-[5rem]"
+                      className="p-2 text-red-500"
                     >
-                      <FaTrash className="ml-[1rem]"></FaTrash>
+                      <FaTrash className=""></FaTrash>
                     </button>
                   </div>
                 </div>
               ))}
 
-              <div className="mt-8 w-[40rem]">
+              <div className="mt-6 w-full max-w-full">
                 <div className="p-4 rounded-lg">
                   <h2 className="text-xl font-semibold mb-2">
                     Items: (
