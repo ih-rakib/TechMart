@@ -94,7 +94,13 @@ const ProductDetails = () => {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = /headphone|headset|earbud/i.test(product.name)
+                        ? "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80"
+                        : "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=900&q=80";
+                    }}
+                    className="absolute left-0 top-0 h-full w-full rounded-lg bg-white object-contain"
                   />
                   <HeartIcon product={product} />
                 </div>
