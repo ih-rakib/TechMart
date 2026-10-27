@@ -12,36 +12,32 @@ const Home = () => {
 
   return (
     <>
-      {!keyword ? <Header></Header> : null}
+      {!keyword ? <Header /> : null}
       {isLoading ? (
-        <Loader></Loader>
+        <Loader />
       ) : isError ? (
         <Message variant="danger">
           {isError?.data?.message || isError.error}
         </Message>
       ) : (
         <>
-          <div className="flex justify-between items-center">
-            <h1 className="ml-[10rem] mt-[10rem] text-[3rem]">
+          <div className="mx-auto mt-10 flex w-full max-w-7xl flex-col gap-4 px-4 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:mt-20 lg:px-8">
+            <h1 className="text-2xl font-bold sm:text-3xl lg:text-4xl">
               Special Products
             </h1>
 
             <Link
               to="/shop"
-              className="bg-slate-700 text-white font-bold rounded-full py-2 px-10 mr-[8rem] mt-[10rem]"
+              className="inline-flex w-full items-center justify-center rounded-full bg-slate-700 px-8 py-3 font-bold text-white transition hover:bg-slate-800 sm:w-auto"
             >
               Shop
             </Link>
           </div>
 
-          {/* Responsive flexbox layout for products */}
-          <div className="flex justify-center flex-wrap mr-[3rem] mt-[1rem]">
-            {data?.products.map((product) => (
-              <div
-                key={product._id}
-                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 md:mx-10"
-              >
-                <Product product={product}></Product>
+          <div className="mx-auto mt-4 grid w-full max-w-7xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 xl:grid-cols-4 lg:px-8">
+            {data?.products?.map((product) => (
+              <div key={product._id} className="min-w-0">
+                <Product product={product} />
               </div>
             ))}
           </div>
